@@ -1,0 +1,39 @@
+\documentclass{oblivoir}
+\usepackage{graphicx}
+
+
+\title{객체지향의 특성, 상속에 대해 알아보자 }
+\author{Stud. Son Cheong-sol, Dept. of Computer Science}
+
+\begin{document}
+\maketitle
+
+많은 언어들이 발전 해온 가운데 가장 각광받는 언어, 객체지향 언어들이 현재 시대를 대표하고 있다. 그렇다면 이번에는 객체지향의 대표적인 특징인 추상화, 상속, 다형성들 중에서 상속에 대해 알아보도록 하자. \\
+아래 그림을 보자.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\textwidth]{inheritance1.pdf}
+  \caption{ people, students, professor가 가지는 속성들.}
+\end{figure}
+
+people, students, professor 모두가 age와 name이라는 속성을 가지고 있다. 중복되는 속성을 보니 왠지 중복을 피하고 싶은 욕구가 솟구친다. 한번 students와 professor의 속성에서 중복되는 두가지 속성을 제거해보자
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\textwidth]{inheritance2.pdf}
+  \caption{ students, professor에서 중복되는 속성을 제거.}
+\end{figure}
+
+뭔가 깔끔해 지긴 했는데 결과가 이상해 졌다. students와 professor가 id만 가지고 있어서 원래 가지고 있던 속성들, age와 name이 있었는지, 없었는지 알 수가 없는 것이다. 그렇다면 students와 professor가 각각 people의 속성들을 '상속'받게 되면 어떨까?\\
+아래의 그림을 보도록 하자.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.5\textwidth]{inheritance3.pdf}
+  \caption{ students, professor에게 people의 속성을 상속.}
+\end{figure}
+
+이렇게 선으로 연결됨으로 students와 professor 모두가 people의 하위항목으로 들어가며 age와 name이라는 속성또한 가지게 됨을 확인 할 수 있다. 이때 가지고 있던 속성을 제공하는 class를 super, bass, parent class라고 하며 속성을 상속받는 class를 sub, derived, child class라고 한다.
+
+\end{document} 

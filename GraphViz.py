@@ -1,13 +1,38 @@
 
 from graphviz import Digraph
+import os
 
-s = Digraph('structs', filename='structs_revisited.gv', node_attr={'shape': 'record'})
+os.environ["PATH"] += os.pathsep + 'C:/Program Files (x86)/Graphviz2.38/bin'
 
-s.node('struct1', '<f0> left|<f1> middle|<f2> right')
-s.node('struct2', '<f0> one|<f1> two')
-s.node('struct3', r'hello\nworld |{ b |{c|<here> d|e}| f}| g | h')
+s1 = Digraph('structs', filename='inheritance1', node_attr={'shape': 'record'})
 
-s.edges([('struct1:f1', 'struct2:f0'), ('struct1:f2', 'struct3:here')])
+s1.node('people', '{<this>people|{age | name}}')
+s1.node('students', '{<this>students|{<id>age | name | stud_id}}')
+s1.node('professor', '{<this>professor|{<id>age | name | pro_id}}')
 
-s.view()
+s1.edges([('students:this','people:this'), ('professor:this','people:this')])
+
+s1.view()
+
+
+s2 = Digraph('structs', filename='inheritance2', node_attr={'shape': 'record'})
+
+s2.node('people', '{<this>people|{age | name}}')
+s2.node('students', '{<this>students|{<id>stud_id}}')
+s2.node('professor', '{<this>professor|{<id>pro_id}}')
+
+#s2.edges([('students:this','people:this'), ('professor:this','people:this')])
+
+s2.view()
+
+
+s3 = Digraph('structs', filename='inheritance3', node_attr={'shape': 'record'})
+
+s3.node('people', '{<this>people|{age | name}}')
+s3.node('students', '{<this>students|{<id>stud_id}}')
+s3.node('professor', '{<this>professor|{<id>pro_id}}')
+
+s3.edges([('students:this','people:this'), ('professor:this','people:this')])
+
+s3.view()
 
